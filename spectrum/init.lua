@@ -1,4 +1,3 @@
-
 -- sound : https://freesound.org/people/Legnalegna55/sounds/547558/
 
 
@@ -17,20 +16,19 @@ mobs:register_mob("spectrum:spectrum", {
 	hp_min = 80,
 	hp_max = 80,
 	armor = 80,
-	collisionbox = {-0.4, -1, -0.4, 0.4, 0.9, 0.4},
+	collisionbox = { -0.4, -1, -0.4, 0.4, 0.9, 0.4 },
 	visual = "mesh",
 	mesh = "spectrum.b3d",
 	rotate = 180,
 	textures = {
-		{"spectrum.png"},
+		{ "spectrum.png" },
 	},
 	glow = 8,
 	blood_texture = "blood_spectrum.png",
 	sounds = {
 		random = "spectrum",
 	},
-
-	fly = true ,
+	fly = true,
 	fly_in = "air",
 	walk_velocity = 1,
 	run_velocity = 5,
@@ -39,16 +37,13 @@ mobs:register_mob("spectrum:spectrum", {
 	floats = 0,
 	view_range = 25,
 	drops = {
-		{name = "spectrum:spectrum_orb", chance = 2, min = 1, max =1},
+		{ name = "spectrum:spectrum_orb", chance = 2, min = 1, max = 1 },
 
 	},
 	water_damage = 0,
 	lava_damage = 0,
 	light_damage = 0,
-
-
 	animation = {
-
 		speed_run = 15,
 		stand_start = 0,
 		stand_end = 0,
@@ -59,44 +54,38 @@ mobs:register_mob("spectrum:spectrum", {
 		shoot_start = 55,
 		shoot_end = 84,
 	},
-
 	-- ESSA PARTE FOI RETIRADA DO MOD DE ENDERMAN DO MOBS MINECLONE :)
 	do_custom = function(self, dtime)
 		-- PARTICLE BEHAVIOUR HERE.
 		local specpos = self.object:get_pos()
 		local chanceOfParticle = math.random(0, 1)
-		if chanceOfParticle == 1 then
+		if specpos and chanceOfParticle == 1 then
 			minetest.add_particle({
-				pos = {x=specpos.x+math.random(-1,1)*math.random()/2,y=specpos.y+math.random(0,3),z=specpos.z+math.random(-1,1)*math.random()/2},
-				velocity = {x=math.random(-.25,.25), y=math.random(-.25,.25), z=math.random(-.25,.25)},
-				acceleration = {x=math.random(-.5,.5), y=math.random(-.5,.5), z=math.random(-.5,.5)},
+				pos = { x = specpos.x + math.random(-1, 1) * math.random() / 2, y = specpos.y + math.random(0, 3),
+					z = specpos.z + math.random(-1, 1) * math.random() / 2 },
+				velocity = { x = math.random(-.25, .25), y = math.random(-.25, .25), z = math.random(-.25, .25) },
+				acceleration = { x = math.random(-.5, .5), y = math.random(-.5, .5), z = math.random(-.5, .5) },
 				expirationtime = math.random(),
 				size = math.random(),
 				collisiondetection = true,
 				vertical = false,
 				texture = "pectrum_arrow.png",
 			})
-			end
-		end,
-
-
-
-
-
+		end
+	end,
 })
 
 
 if not mobs.custom_spawn_monster then
-
-mobs:spawn({
-	name = "spectrum:spectrum",
-	nodes = {"air"},
-	max_light = 7,
-	interval = 60,
-	chance = 60000,
-	max_height = 200,
-	active_object_count = 1,
-})
+	mobs:spawn({
+		name = "spectrum:spectrum",
+		nodes = { "air" },
+		max_light = 7,
+		interval = 60,
+		chance = 60000,
+		max_height = 200,
+		active_object_count = 1,
+	})
 end
 
 
@@ -104,35 +93,30 @@ end
 minetest.register_craftitem("spectrum:spectrum_magic_arrow", {
 	description = "Spectrum Magic arrow",
 	inventory_image = "pectrum_arrow.png",
-	groups = {not_in_creative_inventory = 1}
+	groups = { not_in_creative_inventory = 1 }
 })
 
 
 mobs:register_arrow("spectrum:spectrum_arrow", {
-	
 	visual = "wielditem",
-	visual_size = {x=0.3, y=0.3},
+	visual_size = { x = 0.3, y = 0.3 },
 	velocity = 12,
-	textures = {"spectrum:spectrum_magic_arrow"}, 
+	textures = { "spectrum:spectrum_magic_arrow" },
 	--rotate = 180,
 	damage = 2,
 	glow = 5,
-
-
 	hit_player = function(self, player)
 		player:punch(self.object, 1.0, {
 			full_punch_interval = 1.0,
-			damage_groups = {fleshy = 8},
+			damage_groups = { fleshy = 8 },
 		}, nil)
 	end,
-
 	hit_mob = function(self, player)
-		player:punch(self.object,1.0, {
+		player:punch(self.object, 1.0, {
 			full_punch_interval = 1.0,
-			damage_groups = {fleshy = 8},
+			damage_groups = { fleshy = 8 },
 		}, nil)
 	end,
-
 	hit_node = function(self, pos, node)
 	end
 })
@@ -150,9 +134,9 @@ mobs:register_egg("spectrum:spectrum", "Spectrum", "eggspec.png", 1)
 -- SPECTRUM ORB
 
 minetest.register_craftitem("spectrum:spectrum_orb", {
-    description = "Spectrum Orb",
-    inventory_image = "spectrum_orb.png",
-    light_source = 3,
+	description = "Spectrum Orb",
+	inventory_image = "spectrum_orb.png",
+	light_source = 3,
 })
 
 
@@ -160,24 +144,23 @@ minetest.register_craftitem("spectrum:spectrum_orb", {
 
 minetest.register_node("spectrum:spectrum_orb_block", {
 	description = "Spectrum Orb Block",
-	groups = {cracky = 2},
+	groups = { cracky = 2 },
 	drop = "spectrum:spectrum_orb_block",
 	light_source = 6,
-        sounds = default.node_sound_stone_defaults(),
-	tiles = {{
+	sounds = default.node_sound_stone_defaults(),
+	tiles = { {
 		name = "anim_orb_block.png",
-		animation = {type = "vertical_frames", aspect_w = 16, aspect_h = 16, length = 2}
+		animation = { type = "vertical_frames", aspect_w = 16, aspect_h = 16, length = 2 }
 	},
 	},
-
 })
 
 minetest.register_craft({
 	output = "spectrum:spectrum_orb_block",
 	recipe = {
-		{"spectrum:spectrum_orb", "spectrum:spectrum_orb", "spectrum:spectrum_orb"},
-		{"spectrum:spectrum_orb", "spectrum:spectrum_orb", "spectrum:spectrum_orb"},
-		{"spectrum:spectrum_orb", "spectrum:spectrum_orb", "spectrum:spectrum_orb"},
+		{ "spectrum:spectrum_orb", "spectrum:spectrum_orb", "spectrum:spectrum_orb" },
+		{ "spectrum:spectrum_orb", "spectrum:spectrum_orb", "spectrum:spectrum_orb" },
+		{ "spectrum:spectrum_orb", "spectrum:spectrum_orb", "spectrum:spectrum_orb" },
 	}
 })
 
@@ -186,14 +169,12 @@ minetest.register_craft({
 
 -- COMPATIBILIDADE COM : Mirror of Returning (BY : Wuzzy )
 if minetest.get_modpath("returnmirror") then
-
-minetest.register_craft({
-    output = "returnmirror:mirror_inactive ",
-    recipe = {
-		{"default:gold_ingot", "spectrum:spectrum_orb", "default:gold_ingot"},
-		{"spectrum:spectrum_orb", "default:glass", "spectrum:spectrum_orb"},
-		{"", "spectrum:spectrum_orb", ""},
-	},
-})
-
+	minetest.register_craft({
+		output = "returnmirror:mirror_inactive ",
+		recipe = {
+			{ "default:gold_ingot",    "spectrum:spectrum_orb", "default:gold_ingot" },
+			{ "spectrum:spectrum_orb", "default:glass",         "spectrum:spectrum_orb" },
+			{ "",                      "spectrum:spectrum_orb", "" },
+		},
+	})
 end
