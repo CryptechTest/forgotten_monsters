@@ -2,7 +2,7 @@
 -- sound attack : https://freesound.org/people/TomRonaldmusic/sounds/607201/
 
 mobs:register_mob("skullking:sking", {
-	nametag = "Skull King Boss" ,
+	nametag = "Skull King Boss",
 	type = "monster",
 	passive = false,
 	attack_type = "dogfight",
@@ -12,13 +12,13 @@ mobs:register_mob("skullking:sking", {
 	hp_min = 700,
 	hp_max = 700,
 	armor = 80,
-	visual_size = {x = 1.3, y = 1.3},
-	collisionbox = {-0.5, -1.67, -0.4, 0.5, 2.3, 0.5},
+	visual_size = { x = 1.3, y = 1.3 },
+	collisionbox = { -0.5, -1.67, -0.4, 0.5, 2.3, 0.5 },
 	visual = "mesh",
 	mesh = "skull_king_deep.b3d",
 	rotate = 180,
 	textures = {
-		{"skull_king_deep.png"},
+		{ "skull_king_deep.png" },
 	},
 	--glow = 4,
 	blood_texture = "bonex.png",
@@ -28,14 +28,14 @@ mobs:register_mob("skullking:sking", {
 		death = "falling_bones",
 	},
 	walk_velocity = 2, --2
-	run_velocity = 7,  --5
-	jump_height = 3,   -- 8
+	run_velocity = 7, --5
+	jump_height = 3, -- 8
 	stepheight = 3,
 	floats = 0,
 	view_range = 35,
 	drops = {
-		{name = "skullkingsitems:helmet_skullking", chance = 1, min = 1, max = 1},
-		{name = "skullkingsitems:hammer", chance = 1, min = 1, max = 1},
+		{ name = "skullkingsitems:helmet_skullking", chance = 1, min = 1, max = 1 },
+		{ name = "skullkingsitems:hammer",           chance = 1, min = 1, max = 1 },
 		--{name = "skullkingsitems:skullking_trophy", chance = 1, min = 1, max = 1},
 		--{name = "", chance = 3, min = 1, max = 1},
 	},
@@ -52,40 +52,33 @@ mobs:register_mob("skullking:sking", {
 		run_start = 35,
 		run_end = 44,
 		punch_start = 45,
-		punch_end =84,
+		punch_end = 84,
 		punch_speed = 23,
-
-
 	},
-
-	on_spawn = function ()
-	minetest.chat_send_all ("The Skull King is reborn...")
+	on_spawn = function()
+		--minetest.chat_send_all("The Skull King is reborn...")
 	end,
-	
 	--- REFERENCIA DO MINECLONE2 BOSS :)
-	on_die = function(self, pos) -- POSIÇÃO
-	for _,players in pairs(minetest.get_objects_inside_radius(pos,55)) do -- CONSEGUIR RADIUS ( POSIÇÃO ,64 NODES?)
-			if players:is_player() then -- SE PLAYER
-				awards.unlock(players:get_player_name(), "boss_3") -- DESBLOQUEAR CONQUISTAS?
+	on_die = function(self, pos)                                          -- POSIÇÃO
+		for _, players in pairs(minetest.get_objects_inside_radius(pos, 55)) do -- CONSEGUIR RADIUS ( POSIÇÃO ,64 NODES?)
+			if players:is_player() then                                   -- SE PLAYER
+				awards.unlock(players:get_player_name(), "boss_3")        -- DESBLOQUEAR CONQUISTAS?
 			end
 		end
 	end
-
-
 })
 
 
 if not mobs.custom_spawn_monster then
-
-mobs:spawn({
-	name = "skullking:sking",
-	nodes = {"default:cobble","default:mossycobble", "default:chest"},
-	max_light = 7,
-	interval = 60,
-  chance = 150000,
-	max_height = -1100,
-
-})
+	mobs:spawn({
+		name = "skullking:sking",
+		nodes = { "default:cobble", "default:mossycobble", "default:chest" },
+		max_light = 7,
+		interval = 60,
+		chance = 150000,
+		max_height = -1100,
+		min_height = -11000,
+	})
 end
 
 

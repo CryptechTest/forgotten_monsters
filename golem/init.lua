@@ -2,7 +2,7 @@
 -- sound : https://freesound.org/people/Debsound/sounds/250148/
 
 mobs:register_mob("golem:golem", {
-	nametag = "Golem Boss" ,
+	nametag = "Golem Boss",
 	type = "monster",
 	passive = false,
 	attack_npcs = false,
@@ -13,12 +13,12 @@ mobs:register_mob("golem:golem", {
 	hp_min = 500,
 	hp_max = 500,
 	armor = 80,
-	collisionbox = {-1.0, -2.0, -1.0, 1.0, 1.2, 1.0},
+	collisionbox = { -1.0, -2.0, -1.0, 1.0, 1.2, 1.0 },
 	visual = "mesh",
 	mesh = "golem.b3d",
 	rotate = 180,
 	textures = {
-		{"golem.png"},
+		{ "golem.png" },
 	},
 	glow = 2,
 	blood_texture = "faisca.png",
@@ -36,7 +36,7 @@ mobs:register_mob("golem:golem", {
 	drops = {
 		--{name = " ", chance = 2, min = 1, max = 1},
 		--{name = "skullkingsitems:golem_trophy", chance = 1, min = 1, max = 1},
-		{name = "default:diamondblock", chance = 2, min = 1, max = 2},
+		{ name = "default:diamondblock", chance = 2, min = 1, max = 2 },
 
 	},
 	water_damage = 0,
@@ -54,30 +54,26 @@ mobs:register_mob("golem:golem", {
 		punch_start = 55,
 		punch_end = 63,
 	},
-
-	on_spawn = function ()
-	minetest.chat_send_all ("Golem Summoned ...")
+	on_spawn = function()
+		--minetest.chat_send_all ("Golem Summoned ...")
 	end,
-	
 	--- REFERENCIA DO MINECLONE2 BOSS :)
-	on_die = function(self, pos) -- POSIÇÃO
-	for _,players in pairs(minetest.get_objects_inside_radius(pos,55)) do -- CONSEGUIR RADIUS ( POSIÇÃO ,64 NODES?)
-			if players:is_player() then -- SE PLAYER
-				awards.unlock(players:get_player_name(), "boss_2") -- DESBLOQUEAR CONQUISTAS?
+	on_die = function(self, pos)                                       -- POSIÇÃO
+		for _, players in pairs(minetest.get_objects_inside_radius(pos, 55)) do -- CONSEGUIR RADIUS ( POSIÇÃO ,64 NODES?)
+			if players:is_player() then                                -- SE PLAYER
+				awards.unlock(players:get_player_name(), "boss_2")     -- DESBLOQUEAR CONQUISTAS?
 			end
 		end
 	end
-
-
 })
 
 
 mobs:spawn({
 	name = "golem:golem",
-	nodes = {"default:stone"},
+	nodes = { "default:stone" },
 	max_light = 7,
 	interval = 60,
-  chance = 150000,
+	chance = 150000,
 	max_height = -700,
 	min_height = -900,
 })

@@ -1,19 +1,19 @@
-
-
 local bugstone_types = {
 
-	{	nodes = { "default:stone"},
-		skins = {"dude_stone.png"},
+	{
+		nodes = { "default:stone" },
+		skins = { "dude_stone.png" },
 		drops = {
-			{name = "default:stone", chance = 1, min = 1, max = 4},
+			{ name = "default:stone", chance = 1, min = 1, max = 4 },
 
 		},
 	},
 
-	{	nodes = {"default:desert_stone"},
-		skins = {"dude_stone2.png"},
+	{
+		nodes = { "default:desert_stone" },
+		skins = { "dude_stone2.png" },
 		drops = {
-			{name = "default:desert_stone", chance = 1, min = 1, max = 4},
+			{ name = "default:desert_stone", chance = 1, min = 1, max = 4 },
 
 		},
 	}
@@ -21,8 +21,8 @@ local bugstone_types = {
 
 
 local bugstonenods = {
-"default:stone",
-"default:desert_stone",
+	"default:stone",
+	"default:desert_stone",
 }
 
 -- BUG STONE
@@ -39,12 +39,12 @@ mobs:register_mob("bugstone:bugstone", {
 	hp_min = 20,
 	hp_max = 20,
 	armor = 100,
-	collisionbox = {-0.2, -0.4, -0.2, 0.2, 0.1, 0.01},
+	collisionbox = { -0.2, -0.4, -0.2, 0.2, 0.1, 0.01 },
 	visual = "mesh",
 	mesh = "dude_stone.b3d",
 	rotate = 180,
 	textures = {
-		{"dude_stone.png","dude_stone2.png"},
+		{ "dude_stone.png", "dude_stone2.png" },
 	},
 	blood_texture = "faisca.png",
 	makes_footstep_sound = true,
@@ -59,7 +59,7 @@ mobs:register_mob("bugstone:bugstone", {
 	floats = 0,
 	view_range = 20,
 	drops = {
-		{name = "default:stone", chance = 2, min = 1, max = 1},
+		{ name = "default:stone", chance = 2, min = 1, max = 1 },
 
 	},
 	water_damage = 0,
@@ -80,16 +80,14 @@ mobs:register_mob("bugstone:bugstone", {
 })
 
 if not mobs.custom_spawn_monster then
-
-mobs:spawn({
-	name = "bugstone:bugstone",
-	nodes = bugstonenods,
-	max_light = 7,
-	chance = 8000,
-	--min_height = 0,
-	max_height = -10,
-})
-
+	mobs:spawn({
+		name = "bugstone:bugstone",
+		nodes = bugstonenods,
+		max_light = 5,
+		chance = 8000,
+		max_height = 128,
+		min_height = -11000,
+	})
 end
 
 

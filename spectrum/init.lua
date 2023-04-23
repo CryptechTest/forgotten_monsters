@@ -61,8 +61,11 @@ mobs:register_mob("spectrum:spectrum", {
 		local chanceOfParticle = math.random(0, 1)
 		if specpos and chanceOfParticle == 1 then
 			minetest.add_particle({
-				pos = { x = specpos.x + math.random(-1, 1) * math.random() / 2, y = specpos.y + math.random(0, 3),
-					z = specpos.z + math.random(-1, 1) * math.random() / 2 },
+				pos = {
+					x = specpos.x + math.random(-1, 1) * math.random() / 2,
+					y = specpos.y + math.random(0, 3),
+					z = specpos.z + math.random(-1, 1) * math.random() / 2
+				},
 				velocity = { x = math.random(-.25, .25), y = math.random(-.25, .25), z = math.random(-.25, .25) },
 				acceleration = { x = math.random(-.5, .5), y = math.random(-.5, .5), z = math.random(-.5, .5) },
 				expirationtime = math.random(),
@@ -83,7 +86,18 @@ if not mobs.custom_spawn_monster then
 		max_light = 7,
 		interval = 60,
 		chance = 60000,
-		max_height = 200,
+		max_height = -255,
+		min_height = -11000,
+		active_object_count = 1,
+	})
+	mobs:spawn({
+		name = "spectrum:spectrum",
+		nodes = { "air" },
+		max_light = 7,
+		interval = 60,
+		chance = 60000,
+		min_height = 4000,
+		max_height = 22000,
 		active_object_count = 1,
 	})
 end
