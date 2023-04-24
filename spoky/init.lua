@@ -84,12 +84,12 @@ if not mobs.custom_spawn_monster then
 		name = "spoky:spoky",
 		nodes = spokynods,
 		min_light = 0,
-		max_light = 14,
+		max_light = 6,
 		interval = 60,
-		chance = 15000,
+		chance = 60000,
 		min_height = -11000,
 		--max_height = 200,
-		max_height = 200,
+		max_height = 128,
 	})
 end
 
