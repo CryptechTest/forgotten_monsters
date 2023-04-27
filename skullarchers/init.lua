@@ -119,6 +119,7 @@ mobs:register_arrow("skullarchers:sarchers_arrow", {
 	rotate = 180,
 	damage = 2,
 	hit_player = function(self, player)
+		local pos = self.object:get_pos()
 		player:punch(self.object, 1.0, {
 			full_punch_interval = 1.0,
 			damage_groups = { fleshy = 3 },
@@ -130,6 +131,7 @@ mobs:register_arrow("skullarchers:sarchers_arrow", {
 		}, nil)
 	end,
 	hit_mob = function(self, player)
+		local pos = self.object:get_pos()
 		player:punch(self.object, 1.0, {
 			full_punch_interval = 1.0,
 			damage_groups = { fleshy = 3 },
