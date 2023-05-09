@@ -17,22 +17,7 @@ end
 
 
 -- HUMMER
---[[
-minetest.register_tool("default:pick_diamond", {
-	description = S("Diamond Pickaxe"),
-	inventory_image = "default_tool_diamondpick.png",
-	tool_capabilities = {
-		full_punch_interval = 0.9,
-		max_drop_level=3,
-		groupcaps={
-			cracky = {times={[1]=2.0, [2]=1.0, [3]=0.50}, uses=30, maxlevel=3},
-		},
-		damage_groups = {fleshy=5},
-	},
-	sound = {breaks = "default_tool_breaks"},
-	groups = {pickaxe = 1}
-})	
---]]
+
 minetest.register_node("skullkingsitems:hammer", {
 	description = "Skull Kings Hammer",
 	drawtype = "mesh",
