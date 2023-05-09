@@ -91,8 +91,8 @@ if not mobs.custom_spawn_monster then
 		name = "skullarchers:sarchers",
 		nodes = skullnods,
 		min_light = 0,
-		max_light = 14,
-		chance = 7000,
+		max_light = 7,
+		chance = 5000,
 		min_height = -11000,
 		max_height = -510,
 	})

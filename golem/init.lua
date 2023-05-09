@@ -58,10 +58,10 @@ mobs:register_mob("golem:golem", {
 		--minetest.chat_send_all ("Golem Summoned ...")
 	end,
 	--- REFERENCIA DO MINECLONE2 BOSS :)
-	on_die = function(self, pos)                                       -- POSIÇÃO
+	on_die = function(self, pos)                                          -- POSIÇÃO
 		for _, players in pairs(minetest.get_objects_inside_radius(pos, 55)) do -- CONSEGUIR RADIUS ( POSIÇÃO ,64 NODES?)
-			if players:is_player() then                                -- SE PLAYER
-				awards.unlock(players:get_player_name(), "boss_2")     -- DESBLOQUEAR CONQUISTAS?
+			if players:is_player() then                                   -- SE PLAYER
+				awards.unlock(players:get_player_name(), "boss_2")        -- DESBLOQUEAR CONQUISTAS?
 			end
 		end
 	end
@@ -73,7 +73,7 @@ mobs:spawn({
 	nodes = { "default:stone" },
 	max_light = 7,
 	interval = 60,
-	chance = 150000,
+	chance = 50000,
 	max_height = -700,
 	min_height = -900,
 })

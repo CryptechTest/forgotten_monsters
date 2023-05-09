@@ -12,8 +12,8 @@ mobs:register_mob("skullking:sking", {
 	hp_min = 700,
 	hp_max = 700,
 	armor = 80,
-	visual_size = { x = 1.3, y = 1.3 },
-	collisionbox = { -0.5, -1.67, -0.4, 0.5, 2.3, 0.5 },
+	visual_size = { x = 1.1, y = 1.1 },
+	collisionbox = { -0.5, -1.67, -0.4, 0.5, 2.0, 0.5 },
 	visual = "mesh",
 	mesh = "skull_king_deep.b3d",
 	rotate = 180,
@@ -34,9 +34,10 @@ mobs:register_mob("skullking:sking", {
 	floats = 0,
 	view_range = 35,
 	drops = {
-		{ name = "skullkingsitems:helmet_skullking", chance = 1, min = 1, max = 1 },
-		{ name = "skullkingsitems:hammer",           chance = 1, min = 1, max = 1 },
-		--{name = "skullkingsitems:skullking_trophy", chance = 1, min = 1, max = 1},
+		--{ name = "skullkingsitems:helmet_skullking", chance = 1, min = 1, max = 1 },
+		--{ name = "skullkingsitems:hammer",           chance = 1, min = 1, max = 1 },
+		{ name = "skullkingsitems:skullking_trophy", chance = 1, min = 1, max = 1 },
+		{ name = "skullkingsitems:bone",             chance = 2, min = 3, max = 6 },
 		--{name = "", chance = 3, min = 1, max = 1},
 	},
 	water_damage = 0,
@@ -56,7 +57,7 @@ mobs:register_mob("skullking:sking", {
 		punch_speed = 23,
 	},
 	on_spawn = function()
-		--minetest.chat_send_all("The Skull King is reborn...")
+		minetest.chat_send_all("The Skull King is reborn...")
 	end,
 	--- REFERENCIA DO MINECLONE2 BOSS :)
 	on_die = function(self, pos)                                          -- POSIÇÃO
@@ -75,7 +76,7 @@ if not mobs.custom_spawn_monster then
 		nodes = { "default:cobble", "default:mossycobble", "default:chest" },
 		max_light = 7,
 		interval = 60,
-		chance = 150000,
+		chance = 50000,
 		max_height = -1100,
 		min_height = -11000,
 	})
