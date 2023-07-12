@@ -35,8 +35,8 @@ mobs:register_mob("golem:golem", {
 	view_range = 35,
 	drops = {
 		--{name = " ", chance = 2, min = 1, max = 1},
-		--{name = "skullkingsitems:golem_trophy", chance = 1, min = 1, max = 1},
-		{ name = "default:diamondblock", chance = 2, min = 1, max = 2 },
+		{ name = "skullkingsitems:golem_trophy", chance = 1, min = 1, max = 1 },
+		{ name = "default:diamondblock",         chance = 2, min = 1, max = 2 },
 
 	},
 	water_damage = 0,
